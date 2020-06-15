@@ -13,7 +13,7 @@ X,Y = np.meshgrid(x,y)  # meshgrid 用于三维曲面的分割线坐标，产生
 
 # use plt.contourf to filling contours
 # X,Y and value for (X,Y) point
-plt.contourf(X,Y,f(X,Y),8,alpha=0.75, cmap= plt.cm.hot)  # f(X,Y)指的是Z轴, 8指的是平分的等高线数量，cmp=是填充的颜色有hot和cool
+plt.contourf(X,Y,f(X,Y),8,alpha=0.75, cmap= 'viridis')  # f(X,Y)指的是Z轴, 8指的是平分的等高线数量，cmp=是填充的颜色有plt.cm.hot和cool 、gray_r
 
 # use plt.contour to add contour lines
 C = plt.contour(X,Y,f(X,Y),8,colors='black',linwidth=.5)
