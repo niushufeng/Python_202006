@@ -22,5 +22,5 @@ y = 2*x+1
 plt.plot(x,y)
 plt.show()
 ```
-# 
+
 [回到顶部]( readme)
