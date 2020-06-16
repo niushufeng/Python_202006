@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt 
-import matplotlib.gridspec as gridspec
+import matplotlib.gridspec as gridspec  # grid 是网格
 
 # method 3: easy to define structure
 ##########################################
