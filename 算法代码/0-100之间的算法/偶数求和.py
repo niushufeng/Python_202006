@@ -12,8 +12,8 @@ while i <= 100:
     # i % 2 == 0
     if i % 2 == 0:
         print(i)  # 加一个Tab
-        
-        result += i
+
+        result += i  # Tab加一个缩进，属于if 的条件判断
 
     # 处理技术器
     i += 1
