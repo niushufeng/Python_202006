@@ -16,6 +16,10 @@ class MusicPlayer(object):
 
 
 # 创建多个对象
+# 在每次使用类名()创建对象时，Python 的解释器都会自动调用两个方法
+# __new__分配空间
+# __init__ 对象初始化
+
 player1 = MusicPlayer()
 print(player1)
 
