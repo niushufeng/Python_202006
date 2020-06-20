@@ -6,4 +6,4 @@
 """
 input_str = input("请输入算术题：")
 
-print(eval(input_str))
+print(eval(input_str))  # 在开发是千万不要使用eval函数直接转换input的结果
