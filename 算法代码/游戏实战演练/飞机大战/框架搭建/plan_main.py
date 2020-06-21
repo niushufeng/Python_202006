@@ -16,7 +16,13 @@ class PlaneGame(object):
         self.__creat_sprites()
 
     def __creat_sprites(self):
-        pass
+
+         # 创建背景精灵和精灵组
+        bg1 = Background("./images/background.png")
+        bg2 = Background("./images/background.png")
+        bg2.rect.y = -bg2.rect.height
+
+        self.back_group = pygame.sprite.Group(bg1,bg2)
 
 
     def start_game(self):
@@ -29,7 +35,7 @@ class PlaneGame(object):
             # 2.事件监听
             self.__event_handler()
             # 3. 碰撞检测
-            self.__creat_sprites()
+            self.__check__collide()
             # 4.更新/绘制精灵组
             self.__update__sprites()
             # 5.更新显示
@@ -44,17 +50,16 @@ class PlaneGame(object):
                 if event.type == pygame.QUIT:
                     PlaneGame.__game__over()
 
-                    # quit 卸载所有模块
-                    pygame.quit()
-
-                    # exit()
-                    exit()  
-
+                 
     def __check__collide(self):
-        pass
+
+            pass
 
     def __update__sprites(self):
-        pass
+
+        self.back_group.update()
+        self.back_group.draw(self.screen)
+        
     
     @staticmethod
     def __game__over():
