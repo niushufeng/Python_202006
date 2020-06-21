@@ -18,10 +18,9 @@ class PlaneGame(object):
     def __creat_sprites(self):
 
          # 创建背景精灵和精灵组
-        bg1 = Background("./images/background.png")
-        bg2 = Background("./images/background.png")
-        bg2.rect.y = -bg2.rect.height
-
+        bg1 = Background()
+        bg2 = Background(True)  # 交替背景
+        
         self.back_group = pygame.sprite.Group(bg1,bg2)
 
 
