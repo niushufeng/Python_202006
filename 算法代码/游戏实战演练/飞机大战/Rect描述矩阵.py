@@ -8,6 +8,7 @@
 
 import pygame
 
+# 提示：pygame.Rect 是一个比较特殊的类，内部只是封装了一些数字计算，不执行pygame.init()方法同样能够直接使用
 hero_rect = pygame.Rect(100,500,120,125)
 
 print("英雄的原点 %d %d" % (hero_rect.x,hero_rect.y))
