@@ -36,10 +36,14 @@ hero_rect = pygame.Rect(150,300,102,126)
 while True:
 
     # 可以指定循环体内部的代码执行的频率
-    clock.tick(60)  # 60帧是人眼可识别的，越高越好
+    clock.tick(160)  # 60帧是人眼可识别的，越高越好
 
     # 2. 修改飞机的位置
     hero_rect.y -= 1
+
+    # 判断飞机的位置
+    if hero_rect.y + hero_rect.height <= 0:  # 当飞机底部接触图片上面时，回到底部
+        hero_rect.y = 700
 
     # 3. 调用blit方法绘制图像
     screen.blit(bg,(0,0))  # 先绘制背景图像，就遮挡之前绘制的英雄的飞机
