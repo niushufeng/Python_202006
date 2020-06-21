@@ -40,7 +40,7 @@ while True:
 
     # 捕捉事件
     event_list = pygame.event.get()
-    if len(event_list) > 0:
+    if len(event_list) > 0:  # 判断事件的监听
         print(event_list)
 
     # 2. 修改飞机的位置
