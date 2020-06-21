@@ -8,7 +8,7 @@ class PlaneGame(object):
         print("游戏初始化")
 
         # 1.创建游戏的窗口
-        self.screen = pygame.display.set_mode((480,700))
+        self.screen = pygame.display.set_mode(SCREEN_RECT.size)
 
         # 2. 创建游戏的时钟
         self.clock = pygame.time.Clock()
@@ -21,6 +21,21 @@ class PlaneGame(object):
 
     def start_game(self):
         print("游戏开始...")
+
+        while True:
+
+             # 监听事件
+            for event in pygame.event.get():
+
+                # 判断事件类型是否是退出事件
+                if event.type == pygame.QUIT:
+                    print("游戏退出...")
+
+                    # quit 卸载所有模块
+                    pygame.quit()
+
+                    # exit()
+                    exit()  
 
 if __name__ == "__main__":  # 对__name__的判断
     
