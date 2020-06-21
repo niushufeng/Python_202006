@@ -27,6 +27,15 @@ class GameSprite(pygame.sprite.Sprite):
 class Background(GameSprite):
     # 游戏背景精灵
 
+    def __init__(self,is_alt=False):
+
+        # 1.调用父类方法实现精灵的创建(image/rect/speed)
+        super().__init__("./images/background.png")
+
+        # 2.判断是否是交替图像，如果是，需要设置初始位置
+        if is_alt:
+            self.rect.y = -self.rect.height
+
     def update(self):
 
         # 1.调用父类的方法实现
