@@ -148,4 +148,5 @@ class Bullet(GameSprite):
             self.kill()
         
     def __del__(self):
-        print("子弹被销毁")
+        # print("子弹被销毁")
+        pass
