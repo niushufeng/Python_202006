@@ -17,7 +17,7 @@ class PlaneGame(object):
 
         # 4.设置定时器 - 创建敌机  1s,
         pygame.time.set_timer(CREAT_ENEMY_EVENT,1000)  # 1000指1000毫秒
-        pygame.time.set_timer(HERO_FIRE_EVENT,500)
+        pygame.time.set_timer(HERO_FIRE_EVENT,300)
 
     def __creat_sprites(self):
 
@@ -34,7 +34,6 @@ class PlaneGame(object):
         self.hero = Hero()
         self.hero_group = pygame.sprite.Group(self.hero)
 
-
     def start_game(self):
         print("游戏开始...")
 
@@ -50,8 +49,7 @@ class PlaneGame(object):
             self.__update__sprites()
             # 5.更新显示
             pygame.display.update()
-
-            
+          
     def __event_handler(self):
         
         for event in pygame.event.get():
@@ -83,12 +81,23 @@ class PlaneGame(object):
         #     self.hero.speed = 1
         else:
             self.hero_speed = 0
-
-
-                 
+                
     def __check__collide(self):
 
-            pass
+        # 1.子弹摧毁敌机
+        pygame.sprite.groupcollide(self.hero.bullets,self.enemy_group,True,True)
+
+        # 2.敌机撞毁英雄
+        enemies = pygame.sprite.spritecollide(self.hero,self.enemy_group,True)
+
+        # 判断列表是否有内容
+        if len(enemies) > 0:
+
+            # 让英雄牺牲
+            self.hero.kill()
+
+            # 结束游戏
+            PlaneGame.__game__over()
 
     def __update__sprites(self):
 
