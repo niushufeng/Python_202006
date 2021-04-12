@@ -4,6 +4,7 @@ Spyder Editor
 
 This is a temporary script file.
 """
+
 class LinearRegression(object):
     def __init__(self,input_data,realresult,theta = None):
     def Cost(self):
@@ -62,6 +63,27 @@ def BGD(self,alpha):
     avg_g = avg_g.reshape(len(avg_g),1)
     # 更新模型参数self.Theta
     self.Theta = self.Theta + alpha * avg_g
+
+def SGD(self,alpha):
+    """
+    这是利用SGD算法进行一次迭代调整参数的函数 
+    : param alpha:学习率 
+    """
+    # 首先将数据集随机打乱,减少数据集顺序对参数调优的影响 
+    shume_sequence = self.Shuffle_Sequence()
+    self.InputData = self.InputData[Shuffle_sequence]
+    self.Result = self.Result[Shuffle_sequence]
+    # 对训练数据集进行遍历，利用每组训练数据对参数进行调整 
+    for(input_data,real_result) in zip(self.InputData,self.Result):
+        # 计算每组input_data的梯度增量 
+        g = (real_result - input_data.dot(self.Theta)) * input_data
+        # 调整每组input_data的梯度增量的形状 
+        g = g.reshape(len(g),1)
+        # 更新线形回归的模型参数
+        self.Theta = self.Theta + alpha * g
+
+
+    
     
                 
 
