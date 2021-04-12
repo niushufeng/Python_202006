@@ -82,6 +82,52 @@ def SGD(self,alpha):
         # 更新线形回归的模型参数
         self.Theta = self.Theta + alpha * g
 
+def MBGD(self,alpha,batch_size):
+    """
+    这是利用MBGD算法进行一次迭代调整参数的函数 
+    : param alpha:学习率
+    : param batch_size:小批量样本规模 
+    """
+    # 首先将数据集随即打乱，减少数据集顺序对参数调优的影响 
+    shuffle_sequence = self.Shuffle_Sequence()
+    self.InputData = self.InputData[shuffle_sequence]
+    self.Result = self.Result[shuffle_sequence]
+    # 遍历每个小批量样本 
+    for start in np.arange(0,len(shuffle_sequence),bath_size):
+        # 判断start + batch_size是否大于数组长度  
+        # 防止最后一组批量样本规模可能小于bath_size的情况
+        end = np.min([start + batch_size,len(shuffle_sequence)])
+        # 获取训练小批量样本集及标签 
+        mini_batch = shuffle_sequence[start:end]
+        Mini_Train_Data = self.InputData[mini_batch]
+        Mini_Train_Result = self.Result[mini_batch]
+        # 定义梯度增量数组 
+        gradient_increasment = []
+        # 对小样本训练集进行遍历，利用每个样本的梯度增量的平均值对模型参数进行更新
+        for(data,result) in zip(Mini_Train_Data,Mini_Train_Result):
+            # 计算每组input_data的梯度增量，并放入梯度增量数组 
+            g = (result - data.dot(self.Thata) * data)
+            gradient_increasment.append(g)
+        # 按列计算每组小样本训练的梯度增量的平均值，并改变其形状 
+        avg_g = np.average(gradient_increasment,0)
+        avg_g = avg_g.reshape((len(avg_g),1))
+        # 更新模型参数self.theta
+        self.Theta = self.Theta + alpha * avg_g
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     
     
