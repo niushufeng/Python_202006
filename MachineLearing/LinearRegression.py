@@ -161,7 +161,37 @@ def train_MBGD(self,iter,bath_size,alpha):
         Cost.append(self.Cost())
     Cost = np.array(Cost)
     return Cost
+def getNormalEquation(self):
+    col,rol = np.shape(self.InputData.T)
+    XT = self.InputData.T + 0.001 * np.eye(col,rol)
+    inv = np.linalag.inv(XT.dot(self.InputData))
+    self.Theta = inv.dot(XT.dot(self.Result))
+    
+def predict(self,data):
+    tmp = [1.0]
+    tmp.extend(data)
+    data = np.array(tmp)
+    pdict_result = data.dot(self.Theta)[0]
+    return predict_result
 
+def test(self,test_data):
+    redict_result = []
+    for data in test_data:    
+        predict_result.append(self.predict(data))
+    predict_result = np.array(predict_result)
+    return predict_result
+
+def Shuffle_Sequence(self):
+    length = l(self.InputData)
+    random_sequence = list(range(length))
+    random_sequence = np.random.permutation(random_sequence)
+    return random_sequence
+
+def Cost(self):
+    predict = self.InputData.dot(self.Theta).T
+    cost = predict - self.Result.T
+    cost = np.average(cost ** 2)
+    return cost
 
     
     
