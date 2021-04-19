@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Apr 19 15:33:32 2021
+
+@author: h3cvdiuser
+"""
+
+import pandas as pd
+
+# 设置列对齐
+pd.set_option('display.unicode.ambiguous_as_wide', True)
+pd.set_option('display.unicode.east_asian_width', True)
+
+# 读取指定路径下的excel文件超市营业额2.xlsx，并且读取该EXCEL表格中sheet0中的工号、姓名、时段、交易额这四列数据，使用默认索引\n",
+df = pd.read_excel(r'C:\\Users\\h3cvdiuser\\Downloads\\1.xlsx')
+
+# 输出前10行数据
+print(df[:], end='\n')   
