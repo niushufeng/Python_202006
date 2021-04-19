@@ -113,6 +113,35 @@ def MBGD(self,alpha,batch_size):
         avg_g = avg_g.reshape((len(avg_g),1))
         # 更新模型参数self.theta
         self.Theta = self.Theta + alpha * avg_g
+        def train_BGD(self,iter,alpha):
+    """ 
+    这是利用BGD算法迭代优化的函数 
+    ：param iter：迭代次数 
+    ：param alpha:学习率 
+    """
+    # 定义平均训练损失函数，记录每轮迭代的训练数据集的损失 
+    Cost = []
+    # 开始进行迭代训练 
+    for i in range(iter):
+        # 利用学习率alpha,结合BGD算法对模型进行训练
+        self.BGD(alpha)
+        # 记录每次迭代的平均训练损失
+        Cost = np.array(self.Cost())
+        Cost = np.array(Cost)
+        return Cost
+
+def train_SGD(self,iter,alpha):
+    """
+    这是利用SGD算法迭代优化的函数
+    ：param iter:迭代次数
+    : param alpha：学习率 
+    """
+    # 定义平均训练损失函数，记录每轮迭代的训练数据集的损失 
+    Cost = []
+    # 开始进行迭代训练 
+    for i in range(iter):
+        # 利用学习率alpha,结合SGD算法对模型进行训练 
+        self.
         
         
         
